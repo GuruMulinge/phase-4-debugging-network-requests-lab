@@ -1,4 +1,6 @@
 class ToysController < ApplicationController
+end
+class ToysController < ApplicationController
   wrap_parameters format: []
 
   def index
@@ -7,6 +9,7 @@ class ToysController < ApplicationController
   end
 
   def create
+    byebug
     toy = Toys.create(toy_params)
     render json: toy, status: :created
   end
@@ -27,5 +30,5 @@ class ToysController < ApplicationController
   def toy_params
     params.permit(:name, :image, :likes)
   end
-
+  
 end
